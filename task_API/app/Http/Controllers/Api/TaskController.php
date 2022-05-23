@@ -28,10 +28,10 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'board_id' => 'required',
-            'color' => 'required',
+            'board_id' => '',
+            'color' => '',
             'title' => 'required',
-            'description' => 'required|max:255',
+            'description' => '',
         ]);
         $task = Task::create($validated);
         return new TaskResource($task);
@@ -58,10 +58,10 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $validated = $request->validate([
-           'board_id' => 'required',
-           'color' => 'required',
+           'board_id' => '',
+           'color' => '',
            'title' => 'required',
-           'description' => 'required|max:255',
+           'description' => '',
         ]);
         $task->update($validated);
         return new TaskResource($task);
